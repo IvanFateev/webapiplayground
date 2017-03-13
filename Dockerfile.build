@@ -4,5 +4,8 @@ WORKDIR /app
 COPY *.csproj .
 RUN dotnet restore
 
+EXPOSE 5000
+
 COPY . .
 RUN dotnet publish -o "/out/" --configuration Release
+ENTRYPOINT ["dotnet", "/out/app.dll"]
