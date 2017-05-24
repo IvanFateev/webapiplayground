@@ -17,7 +17,7 @@ namespace app
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 // .UseIISIntegration()
                 .UseStartup<Startup>()
-                .UseUrls(new string[] { "http://*:5000" })
+                .UseUrls(new string[] { "http://*:80" })
                 .Build();
 
             host.Run();
