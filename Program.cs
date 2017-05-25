@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 
-namespace app
+namespace webapiplayground
 {
     public class Program
     {
@@ -17,7 +17,6 @@ namespace app
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
                 .UseStartup<Startup>()
-                .UseUrls(new string[] { "http://*:80" })
                 .Build();
 
             host.Run();
