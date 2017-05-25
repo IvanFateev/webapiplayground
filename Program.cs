@@ -15,7 +15,7 @@ namespace app
             var host = new WebHostBuilder()
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
-                // .UseIISIntegration()
+                .UseIISIntegration()
                 .UseStartup<Startup>()
                 .UseUrls(new string[] { "http://*:80" })
                 .Build();
