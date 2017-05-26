@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using webapiplayground.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace webapiplayground
 {
@@ -29,6 +31,8 @@ namespace webapiplayground
         {
             // Add framework services.
             services.AddMvc();
+
+            services.AddDbContext<HiScoreContext>(options => options.UseSqlServer("Server=tcp:jpdb.database.windows.net,1433;Initial Catalog=sandboxdb;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
