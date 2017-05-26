@@ -31,8 +31,11 @@ namespace webapiplayground
         {
             // Add framework services.
             services.AddMvc();
+            services.AddEntityFrameworkSqlServer();
 
-            services.AddDbContext<HiScoreContext>(options => options.UseSqlServer("Server=tcp:jpdb.database.windows.net,1433;Initial Catalog=sandboxdb;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"));
+            services.AddDbContext<HiScoreContext>(
+                options => options.UseSqlServer(
+                                    Configuration.GetValue<string>("ConnectionString")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
